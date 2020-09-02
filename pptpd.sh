@@ -83,7 +83,7 @@ elif test $x -eq 2; then
     read p
  
 # get the VPS IP
-ip=`ifconfig venet0:0 | grep 'inet' | awk {'print $2'} | sed s/.*://`
+ip=`ifconfig eth0 | grep 'inet' -m 1 | awk {'print $2'} | sed s/.*://`
  
 # adding new user
 echo "$u    *   $p  *" >> /etc/ppp/chap-secrets
